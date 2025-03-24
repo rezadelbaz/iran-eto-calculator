@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'Anjoman';
+    src: url('Anjoman-Regular.woff2') format('woff2'),
+         url('Anjoman-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

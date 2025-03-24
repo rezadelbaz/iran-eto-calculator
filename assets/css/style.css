@@ -1,0 +1,233 @@
+@font-face {
+    font-family: 'Anjoman';
+    src: url('../fonts/Anjoman-Regular.woff2') format('woff2'),
+        url('../fonts/Anjoman-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.iran-eto-calculator-container {
+    direction: rtl;
+    font-family: 'Anjoman', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.iran-eto-selectors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.iran-eto-province-selector,
+.iran-eto-city-selector {
+    flex: 1;
+    min-width: 200px;
+}
+
+.iran-eto-province-selector label,
+.iran-eto-city-selector label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-family: 'Anjoman', sans-serif;
+    color: #333;
+}
+
+.iran-eto-province-selector select,
+.iran-eto-city-selector select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    font-family: 'Anjoman', sans-serif;
+}
+
+.iran-eto-load-btn {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background: #4c78dd;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'Anjoman', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.iran-eto-load-btn:hover {
+    background: #3b5bb5;
+}
+
+.iran-eto-loading {
+    text-align: center;
+    font-size: 1.2em;
+    color: #666;
+    margin: 20px 0;
+    font-family: 'Anjoman', sans-serif;
+    display: none;
+}
+
+.iran-eto-chart-container {
+    margin: 20px 0;
+    padding: 15px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: none;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    /* جلوگیری از سرریز شدن */
+    position: relative;
+    /* برای تنظیم بهتر canvas */
+}
+
+.iran-eto-chart-container canvas {
+    width: 100% !important;
+    height: 400px !important;
+    /* ارتفاع پیش‌فرض برای دسکتاپ */
+    max-width: 100%;
+}
+
+.iran-eto-data-table {
+    margin-top: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: none;
+    overflow-x: auto;
+}
+
+.iran-eto-data-table h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Anjoman', sans-serif;
+    color: #333;
+    font-size: 1.5em;
+}
+
+.iran-eto-data-table table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 10px;
+}
+
+.iran-eto-data-table th,
+.iran-eto-data-table td {
+    padding: 12px 15px;
+    text-align: center;
+    font-family: 'Anjoman', sans-serif;
+    font-size: 0.95em;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.iran-eto-data-table th {
+    background: #4c78dd;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.iran-eto-data-table td {
+    background: #fff;
+    color: #555;
+}
+
+.iran-eto-data-table tr:nth-child(even) td {
+    background: #f8f9fa;
+}
+
+.iran-eto-data-table tr:hover td {
+    background: #e9ecef;
+    transition: background 0.3s ease;
+}
+
+.iran-eto-data-table td:first-child,
+.iran-eto-data-table th:first-child {
+    border-right: 1px solid #e0e0e0;
+}
+
+.iran-eto-data-table td:last-child,
+.iran-eto-data-table th:last-child {
+    border-left: 1px solid #e0e0e0;
+}
+
+.iran-eto-export-btn {
+    display: none;
+    margin: 20px auto 20px;
+    padding: 12px 30px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-family: 'Anjoman', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.iran-eto-export-btn:hover {
+    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.iran-eto-error {
+    text-align: center;
+    color: red;
+    padding: 20px;
+    font-family: 'Anjoman', sans-serif;
+}
+
+.iran-eto-error a {
+    color: #4c78dd;
+    text-decoration: none;
+}
+
+.iran-eto-error a:hover {
+    text-decoration: underline;
+}
+
+/* ریسپانسیو کردن گراف و جدول برای موبایل */
+@media (max-width: 768px) {
+    .iran-eto-chart-container {
+        padding: 10px;
+    }
+
+    .iran-eto-chart-container canvas {
+        height: 300px !important;
+        /* کاهش ارتفاع توی موبایل */
+        max-width: 100%;
+    }
+
+    .iran-eto-data-table {
+        padding: 10px;
+    }
+
+    .iran-eto-data-table th,
+    .iran-eto-data-table td {
+        padding: 8px 10px;
+        font-size: 0.85em;
+    }
+
+    .iran-eto-export-btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+}
